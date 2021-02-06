@@ -1,0 +1,81 @@
+doctype html
+html(lang="en")
+    head
+        title Page title
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        meta(name="description" content="")
+        meta(name="author" content="")
+        link(rel="stylesheet" href="css/bulma/bulma-theme.css")
+        link(rel="icon" href="favicon.ico")
+        script(src="js/main.js")
+    body
+        .container.is-fluid
+
+
+            nav.navbar
+                .container
+                    .navbar-brand
+                        a.navbar-item
+                            | Actuent
+                        span.navbar-burger.burger(data-target="navbarMenuHeroA")
+                            span
+                            span
+                            span
+                    #navbarMenuHeroA.navbar-menu
+                        .navbar-end
+                            a.navbar-item.is-active
+                                | How It Works
+
+
+            section.hero.is-fullheight-with-navbar
+                .hero-head
+                    .container.has-text-centered.py-4
+                        .container.landing-container
+                            .columns.is-mobile.box.search-box
+                                .column.is-6.is-paddingless
+                                    form.search-block
+                                        label.search-label.label
+                                            span Keywords
+                                        input.search-input.home-input(placeholder="Role, job title, etc.")
+                                .column.is-4.is-paddingless
+                                    form.search-block
+                                        label.search-label.label
+                                            span Where
+                                        input.search-input.home-input(placeholder="City, State")
+                                .column.is-2.is-paddingless
+                                    a.button.is-primary.is-large.search-button Search
+                .hero-foot
+                    nav
+                        .container
+                            .pagination(role="navigation", aria-label="pagination")
+                                a.pagination-previous Previous
+                                a.pagination-next Next page
+                                ul.pagination-list
+                                    li
+                                        a.pagination-link(aria-label="Goto page 1") 1
+                                    li
+                                        span.pagination-ellipsis &mldr;
+                                    li
+                                        a.pagination-link(aria-label="Goto page 45") 45
+                                    li
+                                        a.pagination-link.is-current(aria-label="Page 46", aria-current="page") 46
+                                    li
+                                        a.pagination-link(aria-label="Goto page 47") 47
+                                    li
+                                        span.pagination-ellipsis &mldr;
+                                    li
+                                        a.pagination-link(aria-label="Goto page 86") 86
+
+
+            footer.footer
+                .container.has-text-centered
+                    .columns.is-centered
+                        .column.is-8
+                            .level
+                                a.level-item(href="#") About
+                                a.level-item(href="#") Contact
+                                a.level-item(href="#") Privacy
+                                a.level-item(href="#") Credits
+                    hr
+                    p.subtitle.is-6 &copy; 2020 Actuent. All rights reserved.
