@@ -27,7 +27,7 @@
             </div>
             <div id="navbarMenuHeroA" class="navbar-menu">
               <div class="navbar-end">
-                <a class="navbar-item is-active">
+                <a class="navbar-item is-active" href="{{ url_for('howitworks') }}">
                   How It Works
                 </a>
               </div>
@@ -45,7 +45,7 @@
                     <label class="search-label label">
                       <span>Keywords</span>
                     </label>
-                    <input class="search-input home-input" placeholder="Role, job title, etc.">
+                    <input class="search-input home-input is-size-7-mobile" placeholder="Role, job title, etc.">
                   </form>
                 </div>
                 <div class="column is-4 is-paddingless">
@@ -53,22 +53,91 @@
                     <label class="search-label label">
                       <span>Where</span>
                     </label>
-                    <input class="search-input home-input" placeholder="City, State">
+                    <input class="search-input home-input is-size-7-mobile" placeholder="City, State">
                   </form>
                 </div>
 
                 <div class="column is-2 is-paddingless">
-                  <a class="button is-link is-large search-button">Search</a>
+                  <a class="button is-link is-light is-large search-button is-size-7-mobile">Search</a>
                 </div>
               </div>
             </div>
           </div>
+          <nav>
+            <div class="container">
+              <div class="navbar-menu">
+                <div class="navbar-start">
+                  <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Citizenship Status</a>
+                    <div class="navbar-dropdown"><a class="navbar-item navbar-item-dropdown" href="#">Exclude "US Citizen Only"</a><a class="navbar-item navbar-item-dropdown" href="#">Visa Sponsorship</a></div>
+                  </div>
+                  <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Clearance Requirements</a>
+                    <div class="navbar-dropdown"><a class="navbar-item navbar-item-dropdown" href="#">Exclude Clearance</a></div>
+                  </div>
+                </div>
+                <div class="navbar-end">
+                  <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Country</a>
+                    <div class="navbar-dropdown"><a class="navbar-item navbar-item-dropdown" href="#">USA 🇺🇸</a><a class="navbar-item navbar-item-dropdown" href="#">Canada 🇨🇦</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="hero-body">
+          <div class="container has-text-centered py-4">
+            <div class="columns is-centered">
+              <div class="column is-8 is-paddingless">
+
+                <p class="has-text-left is-italic has-text-grey-light">tech jobs in falls church, va 22046</p>
+                <div class="media py-5">
+                  <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="https://bulma.dev/placeholder/pictures/bg_circle.svg?primary=00d1b2" alt=""></figure></div>
+                  <div class="media-content">
+                    <h6 class="title is-6"><a href="#">Data Analyst</a> at Awesome Inc.</h6>
+                    <p class="block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta velit id augue convallis porta at vitae nisi.</p>
+                  </div>
+                </div>
+                <div class="media py-5">
+                  <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="https://bulma.dev/placeholder/pictures/bg_circle.svg?primary=00d1b2" alt=""></figure></div>
+                  <div class="media-content">
+                    <h6 class="title is-6"><a href="#">Software Engineer</a> at Wellify</h6>
+                    <p class="block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta velit id augue convallis porta at vitae nisi. Integer nibh.</p>
+                  </div>
+                </div>
+                <div class="media py-5">
+                  <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="https://bulma.dev/placeholder/pictures/bg_circle.svg?primary=00d1b2" alt=""></figure></div>
+                  <div class="media-content">
+                    <h6 class="title is-6"><a href="#">Research Asisstant</a> at Amazing Inc.</h6>
+                    <p class="block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta velit id augue convallis porta at vitae nisi. Integer nibh.</p>
+                  </div>
+                </div>
+                <div class="media py-5">
+                  <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="https://bulma.dev/placeholder/pictures/bg_circle.svg?primary=00d1b2" alt=""></figure></div>
+                  <div class="media-content">
+                    <h6 class="title is-6"><a href="#">Product Strategist</a> at Fantastic LLC</h6>
+                    <p class="block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta velit id augue convallis porta at vitae nisi. Integer nibh.</p>
+                  </div>
+                </div>
+                <div class="media py-5">
+                  <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="https://bulma.dev/placeholder/pictures/bg_circle.svg?primary=00d1b2" alt=""></figure></div>
+                  <div class="media-content">
+                    <h6 class="title is-6"><a href="#">Model Analyst</a> at Sweet</h6>
+                    <p class="block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta velit id augue convallis porta at vitae nisi. Integer nibh.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div class="hero-foot">
           <nav>
             <div class="container">
-              <div class="pagination" role="navigation" aria-label="pagination">
+              <div class="pagination is-centered" role="navigation" aria-label="pagination">
                 <a class="pagination-previous">Previous</a><a class="pagination-next">Next page</a>
                 <ul class="pagination-list">
                   <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
@@ -82,6 +151,34 @@
               </div>
             </div>
           </nav>
+        </div>
+      </section>
+
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container has-text-centered pt-4">
+            <h1 class="title is-spaced">Bringing Tailored Job Search Tools to Students and Recent Grads</h1>
+            <h2 class="subtitle">We're creating new smart filters to help find entry-level jobs faster.</h2>
+            <div class="buttons is-centered"><a class="button is-light" href="#">Read More</a></div>
+          </div>
+          <hr class="my-6">
+          <div class="columns has-text-centered">
+            <div class="column is-4">
+              <img src="{{ url_for('static', filename= 'placeholder/icons/check.svg') }}" alt="">
+              <h4 class="title is-4">Entry-Level</h4>
+              <p>We do our best to find jobs without experience requirements.</p>
+            </div>
+            <div class="column is-4">
+              <img src="{{ url_for('static', filename= 'placeholder/icons/check.svg') }}" alt="">
+              <h4 class="title is-4">Citizenship Requirement Aware</h4>
+              <p>We check whether non-citizen residents are eligible.</p>
+            </div>
+            <div class="column is-4">
+              <img src="{{ url_for('static', filename= 'placeholder/icons/check.svg') }}" alt="">
+              <h4 class="title is-4">Clearance Requirement Aware</h4>
+              <p>Store your data safely, and access it faster than ever</p>
+            </div>
+          </div>
         </div>
       </section>
 
