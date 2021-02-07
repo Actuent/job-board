@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Actual Entry | Home</title>
+  <title>Actual Entry | How It Works</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -17,7 +17,7 @@
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item" href="/">
-              Actuent
+              Actual Entry
             </a>
             <span class="navbar-burger burger" data-target="navbarMenuHeroA">
               <span></span>
@@ -27,7 +27,7 @@
           </div>
           <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
-              <a class="navbar-item is-active">
+              <a class="navbar-item is-active" href="{{ url_for('howitworks') }}">
                 How It Works
               </a>
             </div>
@@ -78,7 +78,7 @@
                   <p>(How results direct through our partner and go to job posts)</p>
                 </div>
               </div>
-              <div class="buttons is-centered"><a class="button is-primary" href="#">Read Our Whitepaper</a></div>
+              <div class="buttons is-centered"><a class="button is-link is-light" href="#">Read Our Whitepaper</a></div>
             </div>
           </div>
         </div>
