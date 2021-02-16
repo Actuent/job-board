@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Actual Entry | Home</title>
+    <title>Actuent | Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -17,7 +17,7 @@
           <div class="container">
             <div class="navbar-brand">
               <a class="navbar-item" href="{{ url_for('home') }}">
-                Actual Entry
+                Actuent.io
               </a>
               <span class="navbar-burger burger" data-target="navbarMenuHeroA">
                 <span></span>
@@ -39,31 +39,34 @@
         <div class="hero-body">
           <div class="container has-text-centered py-4">
             <h1 class="title is-1 is-spaced">Find jobs that are actually entry-level</h1>
-            <h2 class="subtitle">Search thousands of verified listings...</h2>
+            <h2 class="subtitle">Search our verified listings...</h2>
             <div class="container landing-container">
+              <form action="/" method="post">
               <div class="columns is-mobile box search-box">
+
                 <div class="column is-6 is-paddingless">
-                  <form class="search-block">
+                  <div class="search-block">
                     <label class="search-label label">
                       <span>Keywords</span>
                     </label>
-                    <input class="search-input home-input" placeholder="Role, job title, etc.">
-                  </form>
+                    <input class="search-input home-input is-size-7-mobile" placeholder="role, job title, etc." id="jobtitle" name="jobtitle">
+                  </div>
                 </div>
                 <div class="column is-4 is-paddingless">
-                  <form class="search-block">
+                  <div class="search-block">
                     <label class="search-label label">
                       <span>Where</span>
                     </label>
-                    <input class="search-input home-input" placeholder="City, State">
-                  </form>
+                    <input class="search-input home-input is-size-7-mobile" placeholder="city, state" id="location" name="location">
+                  </div>
                 </div>
 
                 <div class="column is-2 is-paddingless">
-                  <a class="button is-link is-light is-large search-button" href="search">Search</a>
+                  <input class="button is-link is-light is-large search-button is-size-7-mobile" type="submit" value="Search">
                 </div>
+
               </div>
-            </div>
+              </form>
           </div>
         </div>
 
@@ -82,7 +85,7 @@
             </div>
           </div>
           <hr>
-          <p class="subtitle is-6">© 2020 Actual Entry. All rights reserved.</p>
+          <p class="subtitle is-6">© 2020 Actuent. All rights reserved.</p>
         </div>
       </footer>
     </div>

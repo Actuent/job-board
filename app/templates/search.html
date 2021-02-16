@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Actual Entry | Search</title>
+  <title>Actuent | Search</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -17,7 +17,7 @@
           <div class="container">
             <div class="navbar-brand">
               <a class="navbar-item" href="/">
-                Actual Entry
+                Actuent.io
               </a>
               <span class="navbar-burger burger" data-target="navbarMenuHeroA">
                 <span></span>
@@ -39,31 +39,35 @@
         <div class="hero-head">
           <div class="container has-text-centered py-4">
             <div class="container landing-container">
+              <form action="/" method="post">
               <div class="columns is-mobile box search-box">
+
                 <div class="column is-6 is-paddingless">
-                  <form class="search-block">
+                  <div class="search-block">
                     <label class="search-label label">
                       <span>Keywords</span>
                     </label>
-                    <input class="search-input home-input is-size-7-mobile" placeholder="Role, job title, etc.">
-                  </form>
+                    <input class="search-input home-input is-size-7-mobile" placeholder="role, job title, etc." id="jobtitle" name="jobtitle">
+                  </div>
                 </div>
                 <div class="column is-4 is-paddingless">
-                  <form class="search-block">
+                  <div class="search-block">
                     <label class="search-label label">
                       <span>Where</span>
                     </label>
-                    <input class="search-input home-input is-size-7-mobile" placeholder="City, State">
-                  </form>
+                    <input class="search-input home-input is-size-7-mobile" placeholder="city, state" id="location" name="location">
+                  </div>
                 </div>
 
                 <div class="column is-2 is-paddingless">
-                  <a class="button is-link is-light is-large search-button is-size-7-mobile">Search</a>
+                  <input class="button is-link is-light is-large search-button is-size-7-mobile" type="submit" value="Search">
                 </div>
+
               </div>
-            </div>
+              </form>
           </div>
-          <nav>
+        </div>
+          <!-- <nav>
             <div class="container">
               <div class="navbar-menu">
                 <div class="navbar-start">
@@ -84,7 +88,7 @@
                 </div>
               </div>
             </div>
-          </nav>
+          </nav> -->
         </div>
 
         <div class="hero-body">
@@ -92,49 +96,27 @@
             <div class="columns is-centered">
               <div class="column is-8 is-paddingless">
 
-                <p class="has-text-left is-italic has-text-grey-light">tech jobs in falls church, va 22046</p>
+                <p class="has-text-left is-italic has-text-grey-light">{{numjobs}} {{jobtitle}} jobs in {{location}}</p>
+
+                {% for job in jobs %}
+
                 <div class="media py-5">
-                  <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="https://bulma.dev/placeholder/pictures/bg_circle.svg?primary=00d1b2" alt=""></figure></div>
+                  <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="{{job.logo}}" alt=""></figure></div>
                   <div class="media-content">
-                    <h6 class="title is-6"><a href="#">Data Analyst</a> at Awesome Inc.</h6>
-                    <p class="block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta velit id augue convallis porta at vitae nisi.</p>
+                    <h6 class="title is-6"><a href="{{job.url}}">{{job.jobtitle}}</a> at {{job.company}}.</h6>
+                    <p class="block">{{job.description_preview}}</p>
                   </div>
                 </div>
-                <div class="media py-5">
-                  <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="https://bulma.dev/placeholder/pictures/bg_circle.svg?primary=00d1b2" alt=""></figure></div>
-                  <div class="media-content">
-                    <h6 class="title is-6"><a href="#">Software Engineer</a> at Wellify</h6>
-                    <p class="block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta velit id augue convallis porta at vitae nisi. Integer nibh.</p>
-                  </div>
-                </div>
-                <div class="media py-5">
-                  <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="https://bulma.dev/placeholder/pictures/bg_circle.svg?primary=00d1b2" alt=""></figure></div>
-                  <div class="media-content">
-                    <h6 class="title is-6"><a href="#">Research Asisstant</a> at Amazing Inc.</h6>
-                    <p class="block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta velit id augue convallis porta at vitae nisi. Integer nibh.</p>
-                  </div>
-                </div>
-                <div class="media py-5">
-                  <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="https://bulma.dev/placeholder/pictures/bg_circle.svg?primary=00d1b2" alt=""></figure></div>
-                  <div class="media-content">
-                    <h6 class="title is-6"><a href="#">Product Strategist</a> at Fantastic LLC</h6>
-                    <p class="block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta velit id augue convallis porta at vitae nisi. Integer nibh.</p>
-                  </div>
-                </div>
-                <div class="media py-5">
-                  <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="https://bulma.dev/placeholder/pictures/bg_circle.svg?primary=00d1b2" alt=""></figure></div>
-                  <div class="media-content">
-                    <h6 class="title is-6"><a href="#">Model Analyst</a> at Sweet</h6>
-                    <p class="block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta velit id augue convallis porta at vitae nisi. Integer nibh.</p>
-                  </div>
-                </div>
+
+                {% endfor %}
+
               </div>
             </div>
           </div>
 
         </div>
 
-        <div class="hero-foot">
+        <!-- <div class="hero-foot">
           <nav>
             <div class="container">
               <div class="pagination is-centered" role="navigation" aria-label="pagination">
@@ -151,17 +133,18 @@
               </div>
             </div>
           </nav>
-        </div>
+        </div> -->
       </section>
 
       <section class="hero">
         <div class="hero-body">
+          <hr class="my-6">
           <div class="container has-text-centered pt-4">
             <h1 class="title is-spaced">Bringing Tailored Job Search Tools to Students and Recent Grads</h1>
             <h2 class="subtitle">We're creating new smart filters to help find entry-level jobs faster.</h2>
-            <div class="buttons is-centered"><a class="button is-light" href="#">Read More</a></div>
+            <div class="buttons is-centered"><a class="button is-light" href="../howitworks">Read More</a></div>
           </div>
-          <hr class="my-6">
+          <!-- <hr class="my-6">
           <div class="columns has-text-centered">
             <div class="column is-4">
               <img src="{{ url_for('static', filename= 'placeholder/icons/check.svg') }}" alt="">
@@ -176,10 +159,10 @@
             <div class="column is-4">
               <img src="{{ url_for('static', filename= 'placeholder/icons/check.svg') }}" alt="">
               <h4 class="title is-4">Clearance Requirement Aware</h4>
-              <p>Store your data safely, and access it faster than ever</p>
+              <p>We check if the job requires a security clearance.</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </section>
 
       <footer class="footer">
@@ -190,7 +173,7 @@
             </div>
           </div>
           <hr>
-          <p class="subtitle is-6">© 2020 Actual Entry. All rights reserved.</p>
+          <p class="subtitle is-6">© 2020 Actuent. All rights reserved.</p>
         </div>
       </footer>
     </div>
