@@ -64,15 +64,22 @@ def search():
             location = "washington+dc"
 
     # Need to include end user ip and end user's "useragent"
+    talent = json.loads(requests.get(f'https://neuvoo.com/services/api-new/search?ip=1.1.1.1&useragent=123asd&k={jobtitle}&l={location}&contenttype=all&format=json&publisher=92f7a67c&cpcfloor=1&subid=10101&jobdesc=1&country=us&radius=50').text)
     try:
-        talent = json.loads(requests.get(f'https://neuvoo.com/services/api-new/search?ip=1.1.1.1&useragent=123asd&k={jobtitle}&l={location}&contenttype=all&format=json&publisher=92f7a67c&cpcfloor=1&subid=10101&jobdesc=1&country=us&radius=50').text)
+        # Error handling is based on the assumption that talent['results'] will
+        # return an error because Talent.com will return a list for errors, not
+        # a dict. This assumption might not be valid in all cases.
+        filtered_jobs = JobFilter(talent['results'])
     except:
         # This is a bare except statement, which are typically not ideal
         # We should have different behavior based on the error type
         # Possibly out of scope for MVP
-        talent = json.loads(requests.get(f'https://neuvoo.com/services/api-new/search?ip=1.1.1.1&useragent=123asd&k={driver}&l={washington+dc}&contenttype=all&format=json&publisher=92f7a67c&cpcfloor=1&subid=10101&jobdesc=1&country=us&radius=50').text)
+        jobtitle = "driver"
+        location = "washington+dc"
+        talent = json.loads(requests.get(f'https://neuvoo.com/services/api-new/search?ip=1.1.1.1&useragent=123asd&k={jobtitle}&l={location}&contenttype=all&format=json&publisher=92f7a67c&cpcfloor=1&subid=10101&jobdesc=1&country=us&radius=50').text)
+        filtered_jobs = JobFilter(talent['results'])
     # Filter the dictionary
-    filtered_jobs = JobFilter(talent['results'])
+
     numjobs = len(filtered_jobs)
 
     # Create a description preview for the html rendering
