@@ -53,25 +53,24 @@ def search():
         # We have our query string nicely serialized as a Python dictionary
         args = request.args
 
-        if "jobtitle" in args:
+        if args["jobtitle"]:
             jobtitle = args["jobtitle"]
         else:
-            jobtitle = ""
+            jobtitle = "driver"
 
-        if "location" in args:
+        if args["location"]:
             location = args["location"]
         else:
-            location = ""
-
-
-    else:
-        #Set defaults for search page
-        jobtitle = "driver"
-        location = "washington+dc"
+            location = "washington+dc"
 
     # Need to include end user ip and end user's "useragent"
-    talent = json.loads(requests.get(f'https://neuvoo.com/services/api-new/search?ip=1.1.1.1&useragent=123asd&k={jobtitle}&l={location}&contenttype=all&format=json&publisher=92f7a67c&cpcfloor=1&subid=10101&jobdesc=1&country=us&radius=50').text)
-
+    try:
+        talent = json.loads(requests.get(f'https://neuvoo.com/services/api-new/search?ip=1.1.1.1&useragent=123asd&k={jobtitle}&l={location}&contenttype=all&format=json&publisher=92f7a67c&cpcfloor=1&subid=10101&jobdesc=1&country=us&radius=50').text)
+    except:
+        # This is a bare except statement, therefore bad
+        # We should have different behavior based on the error type
+        # Possibly out of scope for MVP
+        talent = json.loads(requests.get(f'https://neuvoo.com/services/api-new/search?ip=1.1.1.1&useragent=123asd&k={driver}&l={washington+dc}&contenttype=all&format=json&publisher=92f7a67c&cpcfloor=1&subid=10101&jobdesc=1&country=us&radius=50').text)
     # Filter the dictionary
     filtered_jobs = JobFilter(talent['results'])
     numjobs = len(filtered_jobs)
