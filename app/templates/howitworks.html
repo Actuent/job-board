@@ -1,39 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Actuent | How It Works</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bulma/bulma.min.css') }}">
-  <link rel="icon" href="favicon.ico">
-  <script src="{{ url_for('static', filename= 'js/main.js') }}"></script>
-</head>
+{% with page_name='How It Works' %}
+    {% include '_includes/head.html' %}
+{% endwith %}
   <body>
     <div class="container is-fluid">
 
-      <nav class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-              Actuent.io
-            </a>
-            <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </div>
-          <div id="navbarMenuHeroA" class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item is-active" href="{{ url_for('howitworks') }}">
-                How It Works
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {% include '_includes/nav.html' %}
 
       <section class="hero is-fullheight-with-navbar">
         <div class="hero-body">
@@ -51,7 +24,7 @@
                     </div>
                   </div>
                   <h4 class="title is-4">You Search</h4>
-                  <p>(Describe searches)</p>
+                  <p>Simply enter the keywords and location</p>
                 </div>
                 <div class="column">
                   <div class="media">
@@ -63,7 +36,7 @@
                     </div>
                   </div>
                   <h4 class="title is-4">We Find and Filter Jobs</h4>
-                  <p>(Brief summary of how our algorithms work)</p>
+                  <p>We find all the jobs available and use natural language processing to filter out non-entry level jobs</p>
                 </div>
                 <div class="column">
                   <div class="media">
@@ -75,7 +48,7 @@
                     </div>
                   </div>
                   <h4 class="title is-4">Deliver Results to You</h4>
-                  <p>(How results direct through our partner and go to job posts)</p>
+                  <p>We return the results with links to the job post!</p>
                 </div>
               </div>
               <div class="buttons is-centered"><a class="button is-link is-light" href="#">Read Our Whitepaper</a></div>
@@ -84,17 +57,8 @@
         </div>
       </section>
 
-      <footer class="footer">
-        <div class="container has-text-centered">
-          <div class="columns is-centered">
-            <div class="column is-8">
-              <div class="level"><a class="level-item" href="/about/">About</a><a class="level-item" href="/contact/">Contact</a><a class="level-item" href="/privacy/">Privacy</a><a class="level-item" href="/credits/">Credits</a></div>
-            </div>
-          </div>
-          <hr>
-          <p class="subtitle is-6">© 2020 Actuent. All rights reserved.</p>
-        </div>
-      </footer>
+      {% include '_includes/footer.html' %}
+
     </div>
   </body>
 </html>

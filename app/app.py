@@ -70,7 +70,8 @@ def search():
         location = "washington+dc"
 
     # Need to include end user ip and end user's "useragent"
-    talent = json.loads(requests.get(f'https://neuvoo.com/services/api-new/search?ip=1.1.1.1&useragent=123asd&k={jobtitle}&l={location}&contenttype=all&format=json&publisher=92f7a67c&cpcfloor=1&subid=10101&jobdesc=1&country=us&radius=50').text)
+    ip_address = request.remote_addr
+    talent = json.loads(requests.get(f'https://neuvoo.com/services/api-new/search?ip={ip_address}&useragent=123asd&k={jobtitle}&l={location}&contenttype=all&format=json&publisher=92f7a67c&cpcfloor=1&subid=10101&jobdesc=1&country=us&radius=50').text)
 
     # Filter the dictionary
     filtered_jobs = JobFilter(talent['results'])
@@ -85,6 +86,11 @@ def search():
 @app.route('/howitworks/')
 def howitworks():
     return render_template('howitworks.html')
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html', error=e), 404
 
 if __name__ == '__main__':
     app.run(use_reloader=True, debug=True)
