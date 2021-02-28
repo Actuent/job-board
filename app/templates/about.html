@@ -5,9 +5,7 @@
 {% endwith %}
   <body>
     <div class="container is-fluid">
-
       {% include '_includes/nav.html' %}
-
       <section class="hero is-fullheight-with-navbar">
         <div class="hero-body">
           <div class="container has-text-centered py-4">
@@ -32,12 +30,22 @@
               <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta velit id augue convallis porta at vitae nisi."</p>
               </div>
             </div>
+            <div>
+              <h1 class="title is-1 is-spaced" style="margin-top:3cm;">$$$$$</h1> <!-- Fix the hard coded spacing, probably bad on mobile. This is temporary. -->
+              <h2 class="subtitle">
+                How do we keep the lights on? Some of the links you get when you
+                search with us have bids attached to them. When you click on
+                those links, we get a kickback for the bid amount. We don't
+                privilege paid links and we don't filter out unpaid links.
+                That's it. We don't collect any of your information, let alone
+                sell it. Find out more on our <a href="privacy.html">Privacy</a>
+                page.
+              </h2>
+            </div>
           </div>
         </div>
       </section>
-
       {% include '_includes/footer.html' %}
-
     </div>
   </body>
 </html>
