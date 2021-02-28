@@ -2,10 +2,15 @@
   <div class="container has-text-centered">
     <div class="columns is-centered">
       <div class="column is-8">
-        <div class="level"><a class="level-item" href="/about/">About</a><a class="level-item" href="/contact/">Contact</a><a class="level-item" href="/privacy/">Privacy</a><a class="level-item" href="/credits/">Credits</a></div>
+        <div class="level">
+          <a class="level-item" href="{{ url_for('about') }}">About</a>
+          <a class="level-item" href="{{ url_for('contact') }}">Contact</a>
+          <a class="level-item" href="{{ url_for('privacy') }}">Privacy</a>
+          <a class="level-item" href="{{ url_for('credits') }}">Credits</a>
+        </div>
       </div>
     </div>
     <hr>
-    <p class="subtitle is-6">© 2020 Actuent. All rights reserved.</p>
+    <p class="subtitle is-6">© <script>document.write(new Date().getFullYear())</script> Actuent. All rights reserved.</p>
   </div>
 </footer>

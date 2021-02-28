@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Actuent | Contact</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bulma/bulma.min.css') }}">
-  <link rel="icon" href="favicon.ico">
-  <script src="{{ url_for('static', filename= 'js/main.js') }}"></script>
-</head>
+{% with page_name='About' %}
+    {% include '_includes/head.html' %}
+{% endwith %}
   <body>
     <div class="container is-fluid">
 
       {% include '_includes/nav.html' %}
-
 
       <section class="hero is-fullheight-with-navbar">
         <div class="hero-body">
