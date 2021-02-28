@@ -67,7 +67,7 @@ def search():
     try:
         talent = json.loads(requests.get(f'https://neuvoo.com/services/api-new/search?ip=1.1.1.1&useragent=123asd&k={jobtitle}&l={location}&contenttype=all&format=json&publisher=92f7a67c&cpcfloor=1&subid=10101&jobdesc=1&country=us&radius=50').text)
     except:
-        # This is a bare except statement, therefore bad
+        # This is a bare except statement, which are typically not ideal
         # We should have different behavior based on the error type
         # Possibly out of scope for MVP
         talent = json.loads(requests.get(f'https://neuvoo.com/services/api-new/search?ip=1.1.1.1&useragent=123asd&k={driver}&l={washington+dc}&contenttype=all&format=json&publisher=92f7a67c&cpcfloor=1&subid=10101&jobdesc=1&country=us&radius=50').text)
