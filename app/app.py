@@ -19,15 +19,16 @@ def isEntryLevelQ(job_title, job_description):
 
 def AELScore(job_title, job_description):
     count = 0
-    title_exclusions = [r"I{2,3}|IV",
-                    r" 2| 3| 4",
+    title_exclusions = [r"I{2,3}| IV$| V$",
+                    r" 2$| 3$| 4$",
                     r"[sS]enior|SENIOR",
                     r"[sS]r\.*|SR\.",
                     r"[lL]ead|LEAD",
                     r"[dD]irector|DIRECTOR",
                     r"[Pp]rincipal|PRINCIPAL",
                     r"([mM]anage|MANAGE)",
-                    r"[eE]xperienced|EXPERIENCED"]
+                    r"[eE]xperienced|EXPERIENCED",
+                    r"[mM]aster "]
 
     description_exclusions = [r"(?:[mM]inimum|[mM]in\.?|[aA]t least|[tT]otal|[iI]ncluding|[wW]ith).+(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)\+* (?:[yY]ears*|[yY]rs*)",
                          r"[mM]aster'?s| M\.S\. |MS, ",
