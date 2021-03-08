@@ -76,8 +76,18 @@
                 <div class="media py-5">
                   <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="{{job.logo}}" alt=""></figure></div>
                   <div class="media-content">
-                    <h6 class="title is-6"><a href="{{job.url}}">{{job.jobtitle}}</a> at {{job.company}}.</h6>
+                    <h6 class="title is-6"><a href="{{job.url}}">{{job.jobtitle}}</a> at {{job.company}} ({{job.city}}, {{job.state}})</h6>
                     <p class="block">{{job.description_preview}}</p>
+                    {% if job.AELScore == 0%}
+                        <a class="button is-small is-success is-light">AEL {{job.AELScore}}</a>
+                    {% elif job.AELScore == 1 %}
+                        <a class="button is-small is-warning is-light">AEL {{job.AELScore}}</a>
+                    {% elif job.AELScore > 1 %}
+                        <a class="button is-small is-danger is-light">AEL {{job.AELScore}}</a>
+                    {% endif %}
+                    {% if job.clearance_check %}
+                      <a class="button is-small">Clearance required</a>
+                    {% endif %}
                   </div>
                 </div>
 
