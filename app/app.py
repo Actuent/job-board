@@ -19,28 +19,46 @@ def isEntryLevelQ(job_title, job_description):
 
 def AELScore(job_title, job_description):
     count = 0
-    title_exclusions = [r"I{2,3}|IV", \
-                    r" 2| 3| 4",\
-                    r"[sS]enior|SENIOR", \
-                    r"[sS]r\.*|SR\.", \
-                    r"[lL]ead|LEAD", \
-                    r"[dD]irector|DIRECTOR", \
-                    r"[Pp]rincipal|PRINCIPAL", \
-                    r"([mM]anage|MANAGE)", \
+    title_exclusions = [r"I{2,3}|IV",
+                    r" 2| 3| 4",
+                    r"[sS]enior|SENIOR",
+                    r"[sS]r\.*|SR\.",
+                    r"[lL]ead|LEAD",
+                    r"[dD]irector|DIRECTOR",
+                    r"[Pp]rincipal|PRINCIPAL",
+                    r"([mM]anage|MANAGE)",
                     r"[eE]xperienced|EXPERIENCED"]
 
-    description_exclusions = [r"(?:[mM]inimum|[mM]in\.?|[aA]t least|[tT]otal|[iI]ncluding|[wW]ith).+(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)\+* (?:[yY]ears*|[yY]rs*)", \
-                         r"[mM]aster'?s| M\.S\. |MS, ", "Leads in"]
+    description_exclusions = [r"(?:[mM]inimum|[mM]in\.?|[aA]t least|[tT]otal|[iI]ncluding|[wW]ith).+(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)\+* (?:[yY]ears*|[yY]rs*)",
+                         r"[mM]aster'?s| M\.S\. |MS, ",
+                         r"Leads in"
+                         r"\d-\d\+ years as a "]
+
+    title_inclusions = [r"Junior",
+                        r"[eE]ntry [lL]evel",
+                        r"[eE]ntry-[lL]evel"]
+
+    description_inclusions = [r"entry level",
+                              r"[nN]o [eE]xperience"]
+
+    # Subtracting points for exclusions
     for excl in title_exclusions:
         if re.search(excl, job_title) != None:
-            count += 1
+            count -= 1
     for excl in description_exclusions:
         if re.search(excl, job_description) != None:
+            count -= 1
+    # Adding points for inclusions
+    for incl in title_inclusions:
+        if re.search(incl, job_title) != None:
+            count += 1
+    for incl in description_inclusions:
+        if re.search(incl, job_description) != None:
             count += 1
     return count
 
 def clearanceCheck(job_description):
-    return (re.search(r"TS/SCI|[cC]learance req", job_description) != None)
+    return (re.search(r"TS/SCI|[cC]learance req|(DoD|DOD)|[cC]learance|[tT]op [sS]ecret", job_description) != None)
 
 
 def JobFilter(job_list):
@@ -114,7 +132,7 @@ def search():
         job['AELScore'] = AELScore(job['jobtitle'], job['description'])
         job['clearance_check'] = clearanceCheck(job['description'])
 
-    sorted_jobs = sorted(filtered_jobs, key = lambda job: job['AELScore'])
+    sorted_jobs = sorted(filtered_jobs, key = lambda job: job['AELScore'], reverse=True)
 
     return render_template('search.html', jobs=sorted_jobs, numjobs=numjobs, jobtitle=jobtitle, location=location)
 
