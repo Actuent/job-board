@@ -71,8 +71,12 @@
 
                 <p class="has-text-left is-italic has-text-grey-light">{{numjobs}} {{jobtitle}} jobs in {{location}}</p>
 
-                {% for job in jobs %}
+                <br>
 
+                {{ pagination.links }}
+
+                {% for job in jobs %}
+                {% if (pagination.skip < loop.index) and (loop.index <= pagination.skip + 10) %}
                 <div class="media py-5">
                   <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="{{job.logo}}" alt=""></figure></div>
                   <div class="media-content">
@@ -92,9 +96,12 @@
                     {% endif %}
                   </div>
                 </div>
+                {% endif %}
 
                 {% endfor %}
 
+                {{ pagination.links }}
+                {{ pagination.info }}
               </div>
             </div>
           </div>
