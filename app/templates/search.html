@@ -71,18 +71,37 @@
 
                 <p class="has-text-left is-italic has-text-grey-light">{{numjobs}} {{jobtitle}} jobs in {{location}}</p>
 
-                {% for job in jobs %}
+                <br>
 
+                {{ pagination.links }}
+
+                {% for job in jobs %}
+                {% if (pagination.skip < loop.index) and (loop.index <= pagination.skip + 10) %}
                 <div class="media py-5">
                   <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="{{job.logo}}" alt=""></figure></div>
                   <div class="media-content">
-                    <h6 class="title is-6"><a href="{{job.url}}">{{job.jobtitle}}</a> at {{job.company}}.</h6>
+                    <h6 class="title is-6"><a href="{{job.url}}">{{job.jobtitle}}</a> at {{job.company}} ({{job.city}}, {{job.state}})</h6>
                     <p class="block">{{job.description_preview}}</p>
+                    {% if job.AELScore > 0%}
+                        <a class="button is-small is-success is-light has-tooltip-arrow has-tooltip-bottom has-tooltip-multiline" data-tooltip="This is a good score. The job is likely to be actually entry-level.">AEL +{{job.AELScore}}</a>
+                    {% elif job.AELScore == 0%}
+                        <a class="button is-small is-light has-tooltip-arrow has-tooltip-bottom has-tooltip-multiline" data-tooltip="This job may or may not be entry level.">AEL {{job.AELScore}}</a>
+                    {% elif job.AELScore == -1 %}
+                        <a class="button is-small is-warning is-light has-tooltip-arrow has-tooltip-bottom has-tooltip-multiline" data-tooltip="This job is unlikely to be entry level.">AEL {{job.AELScore}}</a>
+                    {% elif job.AELScore < -1 %}
+                        <a class="button is-small is-danger is-light has-tooltip-arrow has-tooltip-bottom has-tooltip-multiline" data-tooltip="This job is highly unlikely to be entry level.">AEL {{job.AELScore}}</a>
+                    {% endif %}
+                    {% if job.clearance_check %}
+                      <a class="button is-small has-tooltip-arrow has-tooltip-bottom has-tooltip-multiline" data-tooltip="This job post mentions a security clearance.">Clearance required</a>
+                    {% endif %}
                   </div>
                 </div>
+                {% endif %}
 
                 {% endfor %}
 
+                {{ pagination.links }}
+                {{ pagination.info }}
               </div>
             </div>
           </div>

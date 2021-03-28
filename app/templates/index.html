@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 {% with page_name='Home' %}
-    {% include '_includes/head.html' %}
+{% include '_includes/head.html' %}
 {% endwith %}
-  <body>
-    <div class="container is-fluid">
+<body>
+  <div class="container is-fluid">
 
-      {% include '_includes/nav.html' %}
+    {% include '_includes/nav.html' %}
 
-      <section class="hero is-fullheight-with-navbar">
-        <div class="hero-body">
-          <div class="container has-text-centered py-4">
-            <h1 class="title is-1 is-spaced">Find jobs that are actually entry-level</h1>
-            <h2 class="subtitle">Search our verified listings...</h2>
-            <div class="container landing-container">
-              <form action="/" method="post">
+    <section class="hero is-fullheight-with-navbar">
+      <div class="hero-body">
+        <div class="container has-text-centered py-4">
+          <h1 class="title is-1 is-spaced">Find jobs that are actually entry-level</h1>
+          <h2 class="subtitle">Search our verified listings...</h2>
+          <div class="container landing-container">
+            <form action="/" method="post">
               <div class="columns is-mobile box search-box">
 
                 <div class="column is-6 is-paddingless">
@@ -39,14 +39,42 @@
                 </div>
 
               </div>
-              </form>
+            </form>
+          </div>
           </div>
         </div>
+        <!--<div class="container landing-container">
+           <div class="field is-horizontal">
+            <div class="field-label">
+              <label class="label"></label>
+            </div>
+              <div class="field-body">
+                <div class="field is-expanded">
+                  <p class="control">
+                    <input class="input is-large" type="text" placeholder="role, job title, etc.">
+                  </p>
+                </div>
+                <div class="field is-expanded">
+                  <p class="control">
+                    <input class="input is-large" type="text" placeholder="city, state">
+                  </p>
+                </div>
+                <div class="field is-expanded">
+                  <p class="control">
+                    <a class="button is-large is-link is-light">
+                      Search
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+</div>
 
-      </section>
+</section>
 
-    {% include '_includes/footer.html' %}
+{% include '_includes/footer.html' %}
 
-    </div>
-  </body>
+</div>
+</body>
 </html>
