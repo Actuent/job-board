@@ -80,7 +80,7 @@
                 <div class="media py-5">
                   <div class="media-left"><figure class="image is-64x64"><img class="is-rounded" src="{{job.logo}}" alt=""></figure></div>
                   <div class="media-content">
-                    <h6 class="title is-6"><a href="{{job.url}}">{{job.jobtitle}}</a> at {{job.company}} ({{job.city}}, {{job.state}})</h6>
+                    <h6 class="title is-6"><a href="{{job.url}}" target="_blank">{{job.jobtitle}}</a> at {{job.company}} ({{job.city}}, {{job.state}})</h6>
                     <p class="block">{{job.description_preview}}</p>
                     {% if job.AELScore > 0%}
                         <a class="button is-small is-success is-light has-tooltip-arrow has-tooltip-bottom has-tooltip-multiline" data-tooltip="This is a good score. The job is likely to be actually entry-level.">AEL +{{job.AELScore}}</a>
