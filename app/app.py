@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, Blueprint
+from flask import Flask, render_template, request, redirect, url_for, Blueprint, send_from_directory
 from flask_paginate import Pagination, get_page_parameter
 import requests
 import json
@@ -101,6 +101,11 @@ def home():
         location = request.form.get('location')
         return redirect(url_for('search', jobtitle=jobtitle, location=location))
     return render_template('index.html')
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/about/')
 def about():
